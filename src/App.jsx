@@ -1,9 +1,11 @@
 import React from "react";
 import "./App.css";
 import { useState, useEffect } from "react";
+
 function App() {
   const [progress, setProgress] = useState(0);
   const [status, setStatus] = useState("Loading");
+
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -19,6 +21,7 @@ function App() {
 
     return () => clearInterval(id);
   }, []);
+
   return (
     <>
       <div className="progress-container">
