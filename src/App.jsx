@@ -6,18 +6,18 @@ function App() {
   const [status, setStatus] = useState("Loading");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prevProgress) => {
-        if (prevProgress >= 100) {
+    const id = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
           setStatus("Complete");
-          clearInterval(interval);
+          clearInterval(id);
           return 100;
         }
-        return prevProgress + 1;
+        return prev + 1;
       });
     }, 100);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(id);
   }, []);
   return (
     <>
